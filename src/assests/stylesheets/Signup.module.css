@@ -1,0 +1,93 @@
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 5px;
+    background-color: #313338;
+    width: 23%;
+    padding: 32px;
+}
+.Label{
+    font-family: cursive;
+    margin: 0px 0px 8px;
+    font-size:12px ;
+    padding: 2px;
+    color: #b5bac1;
+    font-weight: 300;
+}
+.heading{
+    color: #f2f3f5;
+    font-family: cursive;
+    font-size: 24px;
+}
+.subheading{
+    color: #b5bac1;
+    font-size: 16px;
+    font-family: cursive;
+}
+.card{
+    height: 100%;
+}
+.cardHeader{
+    display: flex;
+    align-items: center;
+    margin-top: -2%;
+    flex-direction: column;
+}
+.cardBody{
+    margin:20px 0px 0px
+}
+.form{
+    margin-top: -3%;
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    gap: 2rem;
+}
+.input{
+    margin-top: 2%;
+    padding: 10px;
+    color: #f2f3f5;
+    background-color: #1e1f22;
+    width: 94.4%;
+}
+.button{
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    height: 44px;
+    background-color: #5865f2;
+    color: #f2f3f5;
+    padding: 2px 8px;
+    margin: 0px 0px 8px;
+    
+}
+.register{
+    color: #b5bac1;
+}
+.link{
+    color: #00a8fc;
+    font-family: cursive;
+    letter-spacing: 0.5px;
+}
+.img{
+    width: 45%;
+}
+.box{
+    animation-name: SlideIn;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+}
+@keyframes SlideIn{
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
