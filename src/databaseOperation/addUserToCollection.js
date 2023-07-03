@@ -15,3 +15,4 @@ export const addUserToCollection = async (id, email, name) => {
     })
     console.log('User Added', newDoc)
 }
+

@@ -4,6 +4,7 @@ import { Avatar, Button, Image } from 'antd'
 import { UserOutlined, LikeOutlined, CommentOutlined } from '@ant-design/icons'
 import { getAllPosts } from '../databaseOperation/getAllPosts'
 import { postTimeHandler } from '../databaseOperation/postTimeHandler'
+import ReactPlayer from 'react-player'
 
 const MyPosts = ({ user }) => {
     const [allposts, setallposts] = useState(null)
@@ -30,7 +31,9 @@ const MyPosts = ({ user }) => {
     }
     return (
         <>
-            {allposts ?
+    
+
+            {allposts?.some((obj)=>obj.createdBy.id===user.id) ?
                 allposts.map((x) => {
                     return (
                         <>
@@ -71,11 +74,12 @@ const MyPosts = ({ user }) => {
                             </div>
                         </div>
                         }
+                        
                         </>
                     )
                 })
                 :
-                <></>}
+                <><div style={styles.post} ><div style={{height:'100vh'}}><h1 style={{marginLeft:'20px',color:'white'}}>Add Some Posts</h1></div></div></>}
         </>
     )
 }

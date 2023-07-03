@@ -41,7 +41,7 @@ const Login = () => {
     return (
         <div className={styles.containerL}>
             <Container className={styles.boxC}>
-                <Card className={styles.cardL} style={{background:'transparent'}}>
+                <Card className={styles.cardL} style={{background:'transparent',border:'none'}}>
                     <Card.Header className={styles.cardHeaderL}>
                         <h1 className={styles.headingL}>Welcome Back!</h1>
                         <p className={styles.subheadingL}>We are excited to see you again</p>

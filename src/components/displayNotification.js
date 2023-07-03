@@ -7,17 +7,20 @@ const DisplayNotification = ({ notification }) => {
     return (
         <>
             <div style={{height:'100vh'}}>
-            <div style={styles.post} >
+            
                 {notification.length===0 ?<h1 style={{color:'white'}}>No Notifications</h1>:
                     notification[0].notifications.map((y)=>{
                         return(
-                            <div style={{color:'white', display: 'flex', marginTop: '-1%', alignItems: 'center', height: 50 }}>
-                                {y?.msg}
+                            <>
+                            <div style={{backgroundColor:'#313338', color:'white', display: 'flex', marginTop: '-1%', alignItems: 'center', height: 50 }}>
+                                <p style={{marginLeft:'20px'}}>{y?.msg}</p>
                             </div>
+                            <br/>
+                            </>
                         )
                     })
                 }
-                </div>
+                
             </div>
         </>
     )

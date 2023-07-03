@@ -1,4 +1,5 @@
 import Dashboard from "../components/Dashboard";
+import ChatRoom from "../components/chatRoom/Chatroom";
 import HomePage from "../pages/HomePage";
 import SignupPage from "../pages/SignupPage";
 
@@ -15,6 +16,6 @@ export const PublicRoutes=[
     },
     {
         path:'/test',
-        element:<Dashboard/>
+        element:<ChatRoom/>
     }
 ]

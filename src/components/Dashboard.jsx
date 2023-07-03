@@ -1,6 +1,4 @@
-import { getDownloadURL, ref, uploadBytes, uploadBytesResumable } from 'firebase/storage'
 import React, { useRef, useState } from 'react'
-import { storage } from '../firebase/firebase'
 import { styles } from '../assests/stylesheets/Dashboard.js'
 import { Avatar, Badge, Button, Divider, Image, Input, Layout, Menu, Modal, Upload } from 'antd'
 import Sider from 'antd/es/layout/Sider'
@@ -9,13 +7,16 @@ import logo from '../assests/images/logo.png'
 import { sidenavItems, topnavItems } from './navItems'
 import Posts from './Posts'
 import { DropdownButton, Dropdown } from 'react-bootstrap'
-import { BellOutlined, UserOutlined, PlusOutlined, LoadingOutlined } from '@ant-design/icons'
+import { BellOutlined, UserOutlined, PlusOutlined, LoadingOutlined, UploadOutlined } from '@ant-design/icons'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { Editprofile, logOutUser, setPic } from '../slices/userSlice'
+import { Editprofile, logOutUser, Editpic } from '../slices/userSlice'
 import { setStatusOffline } from '../databaseOperation/changeOnlineStatus'
 import MyPosts from './MyPosts'
 import Notifications from './Notifications'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import ChatRoom from './chatRoom/Chatroom'
+import { UpdateProfilePic } from '../databaseOperation/UpdateProfilePic.js'
 
 
 
@@ -27,6 +28,7 @@ const Dashboard = () => {
   const nameRef = useRef()
   const [loading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState(null);
+  const [Img, setImg] = useState(null)
   const [key, setkey] = useState(1)
 
   const beforeUpload = (file) => {
@@ -44,10 +46,21 @@ const Dashboard = () => {
     setImageUrl(file)
     return false
   }
-
+  const handleStatePic=(url)=>{
+    console.log(typeof url)
+    dispatcher(Editpic(url))
+  }
   const handleOk = async () => {
-
-
+    console.log(imageUrl)
+    if(imageUrl){
+      dispatcher(Editprofile(nameRef.current.input.value))
+      UpdateProfilePic(nameRef.current.input.value,imageUrl,user.id,setImg,handleStatePic)
+      setisModalOpen(false)
+    }
+    else if(nameRef.current.input.value!==user.name){
+        dispatcher(Editprofile(nameRef.current.input.value))
+        setisModalOpen(false)
+    }
   }
   const handleClick = (key) => {
     console.log(key)
@@ -86,7 +99,7 @@ const Dashboard = () => {
             </Badge>
             <div style={styles.profileContainer}>
               <span style={styles.name}>{user.name}</span>
-              <Avatar size={50} icon={user.pic ? <Image src={user.pic} style={{ marginTop: '10px' }} /> : <UserOutlined />} />
+              <Avatar size={50} icon={  Img ? <Image src={Img} style={{ marginTop: '10px' }} /> : <UserOutlined />} />
             </div>
             <DropdownButton style={{ backgroundColor: '#1F1E23' }} title='profile'>
               {topnavItems.map((x) => {
@@ -98,13 +111,14 @@ const Dashboard = () => {
             <Content style={styles.postContainer} >
               {key===1 && <Posts user={user} />}
               {key===3 && <MyPosts user={user}/>}
+              {key===2 && <ChatRoom/>}
               {key===4 && <Notifications user={user}/>}  
             </Content>
             <Content style={styles.trending}>
-              <div style={styles.trendContainer}>
+              {key===2 || <><div style={styles.trendContainer}>
               </div>
               <div style={styles.friends}>
-              </div>
+              </div></>}
             </Content>
           </div>
         </Layout>

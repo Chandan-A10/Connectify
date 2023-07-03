@@ -1,19 +1,19 @@
-import { getDocs, query, updateDoc, where } from "firebase/firestore"
+import { getDocs, onSnapshot, query, setDoc, updateDoc, where } from "firebase/firestore"
 import { PostsCollection } from "../firebase/firebase"
 
-export const updateComments=async(postid,name,text)=>{
+export const updateComments=async(postid,name,text,pic)=>{
     const qry=query(PostsCollection,where('postid','==',postid))
     const docs=await getDocs(qry)
-    let comments=[];
-    let ref;
+    let comm=[];
     docs.forEach((x)=>{
-        comments=x.data().comments
-        ref=x.ref;
+        comm=x.data().comments
+        comm.push({
+            name:name,
+            text:text,
+            pic:pic || '',
+        })
+        console.log(comm)
+        setDoc(x.ref,{comments:comm},{merge:true})
     })
-    comments.push({
-        name:name,
-        text:text,
-    })
-    updateDoc(ref,{comments:comments})
     console.log('comments updated')
 }

@@ -45,8 +45,8 @@ const SignUp = () => {
                 damping: 50,
                 duration: 1,
             }}>
-            <Container className={styles.box} style={{width:'550px',height:'660px'}}>
-                <Card className={styles.card} style={{background:'transparent'}}>
+            <Container className={styles.box} style={{width:'550px',height:'700px'}}>
+                <Card className={styles.card} style={{background:'transparent',border:'none'}}>
                     <Card.Header className={styles.cardHeader}>
                         <h1 className={styles.heading}>Create an Account</h1>
                     </Card.Header>

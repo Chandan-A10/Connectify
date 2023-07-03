@@ -18,11 +18,11 @@ const userSlice = createSlice({
         Editprofile:(state,action)=>{
             state.user={...state.user,name:action.payload}
         },
-        setpic:(state,action)=>{
-            state.user={...state.users,pic:action.payload}
+        Editpic:(state,action)=>{
+            state.user={...state.user,pic:action.payload}
         }
     }
 })
 
 export const userReducer=userSlice.reducer
-export const {setPic,logInUser,Editprofile,logOutUser}=userSlice.actions
+export const {Editpic,logInUser,Editprofile,logOutUser}=userSlice.actions

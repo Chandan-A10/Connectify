@@ -1,0 +1,11 @@
+.container{
+    margin-top: 12px;
+    margin-bottom: 5px;
+    background-color: #1F1E23;
+}
+.search{
+    margin-left: 3%;
+    margin-top: 5%;
+    width:95%;
+    border-radius: 70px;
+}

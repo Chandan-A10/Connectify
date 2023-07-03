@@ -1,0 +1,33 @@
+.container{
+    margin-top: 12px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.image{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    margin-top: -1%;
+}
+.name{
+    margin-left: 20px;
+    font-weight: 500;
+    font-size: 1rem;
+}
+.lastmsg{
+    margin-left: 20px;
+    margin-top:-15px ;
+    font-weight: 100;
+    font-size: 0.9rem;
+    color: rgb(140, 139, 139);
+}
+.clear{
+    min-height: 30%;
+}
+.clear :hover{
+    width:110%;
+    height: 60%;
+    cursor: pointer;
+}
