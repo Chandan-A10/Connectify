@@ -1,15 +1,15 @@
 import React, { useRef, useState } from 'react'
-import { Button, Card, Container, Form } from 'react-bootstrap'
+import { Card, Container, Form } from 'react-bootstrap'
 import styles from '../assests/stylesheets/Signup.module.css'
 import { Link, useNavigate } from 'react-router-dom'
-import { addUserToCollection } from '../databaseOperation/addUserToCollection'
 import { registerUser } from '../databaseOperation/registerUser'
 import { useDispatch } from 'react-redux'
 import { logInUser } from '../slices/userSlice'
+import { motion } from 'framer-motion'
 
 const SignUp = () => {
-    const dispatch=useDispatch()
-    const navigate=useNavigate()
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const [error, seterror] = useState(null)
     const [loading, setLoading] = useState(false)
 
@@ -18,7 +18,7 @@ const SignUp = () => {
     const password = useRef()
     const confirmpassword = useRef()
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         if (password.current.value !== confirmpassword.current.value) {
             setTimeout(() => {
@@ -26,20 +26,27 @@ const SignUp = () => {
             }, 2000);
             return seterror('password do not match')
         }
-        try{
+        try {
             setLoading(true)
-            const user=await registerUser(email.current.value,password.current.value,name.current.value)
-            dispatch(logInUser({name:name.current.value,email:email.current.value,id:user.user.uid}))
+            const user = await registerUser(email.current.value, password.current.value, name.current.value)
+            dispatch(logInUser({ name: name.current.value, email: email.current.value, id: user.user.uid }))
+            navigate('/')
         }
-        catch(err){
+        catch (err) {
             console.log(err)
             return seterror('unknown error occured')
         }
     }
     return (
-        <div className={styles.container}>
-            <Container className={styles.box}>
-                <Card className={styles.card}>
+        <motion.div className={styles.container} initial={{ scale: 0, rotate: 180 }} animate={{ scale: 1, rotate: 360 }}
+            transition={{
+                type: "spring",
+                stiffness: 200,
+                damping: 50,
+                duration: 1,
+            }}>
+            <Container className={styles.box} style={{width:'550px',height:'660px'}}>
+                <Card className={styles.card} style={{background:'transparent'}}>
                     <Card.Header className={styles.cardHeader}>
                         <h1 className={styles.heading}>Create an Account</h1>
                     </Card.Header>
@@ -66,7 +73,7 @@ const SignUp = () => {
                                 <Form.Control ref={confirmpassword} className={styles.input} type='password' required />
                                 {error && <p style={{ color: 'red', letterSpacing: '0.1rem' }}>*{error}</p>}
                             </Form.Group>
-                            <Button disabled={loading} className={styles.button} type='submit'>Create</Button>
+                            <motion.Button whileTap={{ scaleY: 0.99, scaleX: 0.99 }} disabled={loading} className={styles.button} type='submit'>Create</motion.Button>
                         </Form>
                         <div className={styles.register}>
                             <Link className={styles.link} to='/'>Already have an account? </Link>
@@ -74,7 +81,7 @@ const SignUp = () => {
                     </Card.Body>
                 </Card>
             </Container>
-        </div>
+        </motion.div>
     )
 }
 

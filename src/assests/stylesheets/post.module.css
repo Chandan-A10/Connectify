@@ -1,0 +1,6 @@
+.input::placeholder{
+    color: #63656B;
+}
+*:focus {
+    outline: none;
+  }

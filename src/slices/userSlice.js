@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { setStausOnline } from "../databaseOperation/changeOnlineStatus";
 
 const initialstate={
     user:{}
@@ -9,12 +10,19 @@ const userSlice = createSlice({
     reducers:{
         logInUser:(state,action)=>{
             state.user=action.payload
+            setStausOnline(action.payload.id)
         },
         logOutUser:(state,action)=>{
-            state.user={}
+            state.user=''
+        },
+        Editprofile:(state,action)=>{
+            state.user={...state.user,name:action.payload}
+        },
+        setpic:(state,action)=>{
+            state.user={...state.users,pic:action.payload}
         }
     }
 })
 
 export const userReducer=userSlice.reducer
-export const {logInUser,logOutUser}=userSlice.actions
+export const {setPic,logInUser,Editprofile,logOutUser}=userSlice.actions

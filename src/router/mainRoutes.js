@@ -1,6 +1,5 @@
-import SignUp from "../components/Signup";
+import Dashboard from "../components/Dashboard";
 import HomePage from "../pages/HomePage";
-import LoginPage from "../pages/LoginPage";
 import SignupPage from "../pages/SignupPage";
 
 
@@ -11,15 +10,11 @@ export const PublicRoutes=[
         element:<HomePage/>
     },
     {
-        path:'/login',
-        element:<LoginPage/>
-    },
-    {
-        path:'/register',
+        path:'/signup',
         element:<SignupPage/>
     },
     {
         path:'/test',
-        element:<SignUp/>
-    },
+        element:<Dashboard/>
+    }
 ]

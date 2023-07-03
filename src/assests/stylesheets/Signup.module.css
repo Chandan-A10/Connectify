@@ -8,7 +8,7 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 5px;
     background-color: #313338;
-    width: 23%;
+    width: 400px;
     padding: 32px;
 }
 .Label{
@@ -78,16 +78,4 @@
 .img{
     width: 45%;
 }
-.box{
-    animation-name: SlideIn;
-    animation-duration: 1s;
-    animation-timing-function: ease;
-}
-@keyframes SlideIn{
-    0%{
-        transform: translateY(-100%);
-    }
-    100%{
-        transform: translateY(0);
-    }
-}
+

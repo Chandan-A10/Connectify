@@ -1,18 +1,18 @@
-.container{
+.containerL{
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.box{
+.boxC{
     display: flex;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 5px;
     background-color: #313338;
-    width: 37%;
+    width: 700px;
     padding: 32px;
 }
-.Label{
+.LabelL{
     font-family: cursive;
     margin: 0px 0px 8px;
     font-size:12px ;
@@ -20,47 +20,47 @@
     color: #b5bac1;
     font-weight: 300;
 }
-.heading{
+.headingL{
     color: #f2f3f5;
     font-family: cursive;
     font-size: 24px;
 }
-.subheading{
+.subheadingL{
     color: #b5bac1;
     font-size: 16px;
     font-family: cursive;
 }
-.card{
+.cardL{
     height: 100%;
     width: 60%;
 }
-.cardHeader{
+.cardHeaderL{
     display: flex;
     align-items: center;
     margin-top: -2%;
     flex-direction: column;
 }
-.cardBody{
+.cardBodyL{
     margin:20px 0px 0px
 }
-.subheading{
+.subheadingL{
     margin-top: -4%;
 }
-.form{
+.formL{
     margin-top: -3%;
     display: flex;
     flex-direction: column;
     align-items: right;
     gap: 2rem;
 }
-.input{
+.inputL{
     margin-top: 2%;
     padding: 10px;
     color: aliceblue;
     background-color: #1e1f22;
     width: 90%;
 }
-.button{
+.buttonL{
     cursor: pointer;
     border-radius: 5px;
     border: none;
@@ -72,16 +72,16 @@
     margin: 0px 0px 8px;
     width: 95.7%;
 }
-.register{
+.registerL{
     color: #b5bac1;
 }
-.link{
+.linkL{
     color: #00a8fc;
     text-decoration: none;
     font-family: cursive;
     letter-spacing: 0.5px;
 }
-.img{
+.imgL{
     width: 45%;
 }
 .authButton {
@@ -107,12 +107,12 @@
     margin-bottom: 2.6px;
     margin-left: -20%; 
 }
-.box{
+.boxL{
     animation-name: SlideIn;
     animation-duration: 1s;
     animation-timing-function: ease;
 }
-.img{
+.imgL{
     animation-name: img;
     animation-duration: 1s;
     animation-timing-function: ease;
